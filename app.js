@@ -1,6 +1,6 @@
 var animateApp = angular.module('animateApp', ['ngRoute', 'ngAnimate']);
 
-animateApp.config(function($routeProvider) {
+animateApp.config(function($routeProvider, $locationProvider) {
     $routeProvider
     	.when('/', {
     		templateUrl: 'page-home.html',
@@ -14,7 +14,9 @@ animateApp.config(function($routeProvider) {
     		templateUrl: 'page-contact.html',
             controller: 'contactController'
     	});
-
+    
+        // use the HTML5 History API
+        $locationProvider.html5Mode(true);
 });
 
 animateApp.controller('mainController', function($scope) {
