@@ -1,31 +1,33 @@
+// app.js
+
 // define our application and pull in ngRoute and ngAnimate
 var animateApp = angular.module('animateApp', ['ngRoute', 'ngAnimate']);
 
-// ROUTING ================================================
+// ROUTING ===============================================
 // set our routing for this application
 // each route will pull in a different controller
 animateApp.config(function($routeProvider) {
-    
+
     $routeProvider
-    
+
         // home page
         .when('/', {
             templateUrl: 'page-home.html',
             controller: 'mainController'
         })
-    
+
         // about page
         .when('/about', {
             templateUrl: 'page-about.html',
             controller: 'aboutController'
         })
-    
+
         // contact page
         .when('/contact', {
             templateUrl: 'page-contact.html',
             controller: 'contactController'
         });
-    
+
 });
 
 // CONTROLLERS ============================================
