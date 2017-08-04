@@ -1,32 +1,45 @@
+// define our application and pull in ngRoute and ngAnimate
 var animateApp = angular.module('animateApp', ['ngRoute', 'ngAnimate']);
 
-animateApp.config(function($routeProvider, $locationProvider) {
-    $routeProvider
-    	.when('/', {
-    		templateUrl: 'page-home.html',
-            controller: 'mainController'
-    	})
-    	.when('/about', {
-    		templateUrl: 'page-about.html',
-            controller: 'aboutController'
-    	})
-    	.when('/contact', {
-    		templateUrl: 'page-contact.html',
-            controller: 'contactController'
-    	});
+// ROUTING ================================================
+// set our routing for this application
+// each route will pull in a different controller
+animateApp.config(function($routeProvider) {
     
-        // use the HTML5 History API
-        $locationProvider.html5Mode(true);
+    $routeProvider
+    
+        // home page
+        .when('/', {
+            templateUrl: 'page-home.html',
+            controller: 'mainController'
+        })
+    
+        // about page
+        .when('/about', {
+            templateUrl: 'page-about.html',
+            controller: 'aboutController'
+        })
+    
+        // contact page
+        .when('/contact', {
+            templateUrl: 'page-contact.html',
+            controller: 'contactController'
+        });
+    
 });
 
+// CONTROLLERS ============================================
+// home page controller
 animateApp.controller('mainController', function($scope) {
     $scope.pageClass = 'page-home';
 });
 
+// about page controller
 animateApp.controller('aboutController', function($scope) {
     $scope.pageClass = 'page-about';
 });
 
+// contact page controller
 animateApp.controller('contactController', function($scope) {
     $scope.pageClass = 'page-contact';
 });
